@@ -1,0 +1,65 @@
+﻿<Window
+    x:Class="ModernComboBox.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    xmlns:local="clr-namespace:ModernComboBox"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="525"
+    Height="350"
+    mc:Ignorable="d">
+    <Window.Resources>
+        <Style x:Name="TextBlockStyle" TargetType="TextBlock">
+            <Setter Property="TextTrimming" Value="CharacterEllipsis" />
+            <Setter Property="ToolTip" Value="{Binding Text, RelativeSource={RelativeSource Self}}" />
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition MinWidth="25" />
+            <ColumnDefinition Width="221" />
+            <ColumnDefinition Width="179" />
+        </Grid.ColumnDefinitions>
+        <TextBlock
+            Grid.Column="0"
+            Height="20"
+            Margin="10,0,0,0"
+            VerticalAlignment="Center"
+            Text="This is a example for label" />
+        <TextBlock
+            Grid.Column="0"
+            Height="20"
+            Margin="10,100,0,0"
+            VerticalAlignment="Center"
+            Text="This is a example2 for label" />
+        <ComboBox
+            Grid.Column="1"
+            Width="200"
+            Height="70"
+            Margin="10,0,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            AllowDrop="True"
+            FontFamily="Segoe WP"
+            FontSize="12"
+            Tag="Open Folder">
+            <i:Interaction.Behaviors>
+                <local:ComboBoxBehavior />
+            </i:Interaction.Behaviors>
+            <ComboBoxItem Content="Item 1" />
+            <ComboBoxItem Content="Item 2" />
+            <ComboBoxItem Content="Item 3" />
+        </ComboBox>
+        <Button
+            x:Name="Button"
+            Grid.Column="2"
+            Width="70"
+            Height="50"
+            Margin="30,0,0,0"
+            HorizontalAlignment="Left"
+            Click="ButtonBase_OnClick"
+            Content="Button" />
+    </Grid>
+</Window>
